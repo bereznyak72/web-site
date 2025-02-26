@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О сайте</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+            background-color: #1e1e2f;
+            color: #f4f4f9;
+        }
+
+        .headbar {
+            background-color: #5f4b8b;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .headbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .headbar a:hover {
+            color: #f4c542;
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            color: #5f4b8b;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        body.dark-theme header h1 {
+            color: #f4c542;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        body.dark-theme section h2 {
+            color: #f4f4f9;
+        }
+
+        section p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        body.dark-theme section p {
+            color: #ccc;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            font-size: 18px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        body.dark-theme .team-member p {
+            color: #f4f4f9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #5f4b8b;
+            color: #fff;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5f4b8b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: #f4c542;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section p {
+                font-size: 18px;
+            }
+
+            .team-member {
+                width: 100%;
+            }
+
+            .team-member img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .team-member p {
+                font-size: 16px;
+            }
+
+            .headbar a {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="headbar">
+        <a href="index.html">Главная</a>
+        <a href="projects.html">Мои проекты</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>О сайте</h1>
+        </header>
+        
+        <section class="about">
+            <h2>Что мы делаем?</h2>
+            <p>Наш сайт предоставляет пользователям актуальную информацию по широкому спектру тем. Мы ориентированы на качество контента и стремимся помогать нашим читателям быть в курсе самых важных событий.</p>
+            
+            <h2>Наша миссия</h2>
+            <p>Наша миссия — быть надежным источником знаний и вдохновения, помогая вам принимать обоснованные решения на основе точной и проверенной информации.</p>
+        </section>
+        
+        <footer>
+            <p>© 2025 Все права защищены</p>
+        </footer>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>

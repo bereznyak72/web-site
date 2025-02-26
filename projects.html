@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои проекты</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-theme {
+            background-color: #1e1e2f;
+            color: #f4f4f9;
+        }
+
+        .headbar {
+            background-color: #5f4b8b;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .headbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .headbar a:hover {
+            color: #f4c542;
+        }
+
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            color: #5f4b8b;
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        body.dark-theme header h1 {
+            color: #f4c542;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        section h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        body.dark-theme section h2 {
+            color: #f4f4f9;
+        }
+
+        section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        body.dark-theme section p {
+            color: #ccc;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-item {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-theme .project-item {
+            background-color: #2d2d44;
+            border-color: #444;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-item img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .project-item .info {
+            flex: 1;
+        }
+
+        .project-item h3 {
+            font-size: 24px;
+            color: #5f4b8b;
+            margin-bottom: 10px;
+        }
+
+        body.dark-theme .project-item h3 {
+            color: #f4c542;
+        }
+
+        .project-item p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        body.dark-theme .project-item p {
+            color: #ccc;
+        }
+
+        .project-item a {
+            color: #5f4b8b;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        body.dark-theme .project-item a {
+            color: #f4c542;
+        }
+
+        .project-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #5f4b8b;
+            color: #fff;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5f4b8b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: #f4c542;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section p {
+                font-size: 16px;
+            }
+
+            .project-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .project-item img {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .project-item h3 {
+                font-size: 20px;
+            }
+
+            .project-item p {
+                font-size: 16px;
+            }
+
+            .headbar a {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="headbar">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О сайте</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Мои проекты</h1>
+        </header>
+
+        <section class="projects-list">
+            <div class="project-item">
+                <img src="https://sun9-59.userapi.com/impg/XGYbirYVN-vwiQfGWINDI0ZRWWVDQ9Lq0f5G_Q/OPW0ug4aj3w.jpg?size=1024x1024&quality=95&sign=2df1cd0f54172dbced5a0bf3306319c6&type=album" alt="Мой сайт">
+                <div class="info">
+                    <h3>Мой веб-сайт</h3>
+                    <p>Цель данного сайта — продемонстрировать мои проекты и ресурсы, которые я использовал и использую в процессе своего обучения.</p>
+                    <a href="index.html">Подробнее</a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <img src="https://sun9-80.userapi.com/impg/I-T_KW6jniBTlanosbw9hQRSBIonn-IGXaX3-g/qqjqmN8EPy8.jpg?size=2560x2560&quality=95&sign=faa04d920abcc40dfdbde6c257593811&type=album" alt="Бот Гуффи">
+                <div class="info">
+                    <h3>Бот Гуффи</h3>
+                    <p>Этот универсальный помощник был разработан для того, чтобы сделать общение в чате более продуктивным и интересным. Обладая обширными знаниями и богатым опытом своего создателя, бот предлагает широкий спектр функций, который позволяет разнообразить взаимодействие участников группы.</p>
+                    <a href="guffi_bot.html">Подробнее</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Все права защищены</p>
+        </footer>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
+</body>
+</html>
