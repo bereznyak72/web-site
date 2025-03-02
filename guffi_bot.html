@@ -2,435 +2,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Гуффи Бот — универсальный помощник для общения в чате. Узнайте больше о его функциях и командах.">
+    <meta name="keywords" content="Гуффи Бот, Telegram бот, VK бот, команды бота, чат-бот">
     <title>Гуффи Бот</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body.dark-theme {
-            background-color: #1e1e2f;
-            color: #f4f4f9;
-        }
-
-        .headbar {
-            background-color: #5f4b8b;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .headbar a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .headbar a:hover {
-            color: #f4c542;
-        }
-
-        .headbar a.developer-site {
-            background-color: #f4c542;
-            color: #5f4b8b;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 20px;
-            margin-left: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .headbar a.developer-site:hover {
-            transform: scale(1.05);
-            background-color: #5f4b8b;
-            color: #fff;
-        }
-
-        .container {
-            width: 85%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        header h1 {
-            font-size: 42px;
-            color: #5f4b8b;
-            font-weight: 700;
-            letter-spacing: 2px;
-            transition: transform 0.3s ease;
-        }
-
-        body.dark-theme header h1 {
-            color: #f4c542;
-        }
-
-        header h1:hover {
-            transform: scale(1.05);
-        }
-
-        section h2 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        body.dark-theme section h2 {
-            color: #f4f4f9;
-        }
-
-        section p {
-            font-size: 22px;
-            margin-bottom: 30px;
-            text-align: justify;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        body.dark-theme section p {
-            color: #ccc;
-        }
-
-        .commands {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .command-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            width: 45%;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        body.dark-theme .command-card {
-            background-color: #2d2d44;
-            color: #f4f4f9;
-        }
-
-        .command-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .command-card h3 {
-            font-size: 24px;
-            color: #5f4b8b;
-            margin-bottom: 15px;
-        }
-
-        body.dark-theme .command-card h3 {
-            color: #f4c542;
-        }
-
-        .command-card p {
-            font-size: 18px;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        body.dark-theme .command-card p {
-            color: #ccc;
-        }
-
-        .command-card code {
-            font-family: 'Courier New', monospace;
-            background-color: #f4f4f9;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        body.dark-theme .command-card code {
-            background-color: #1e1e2f;
-            color: #f4f4f9;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #5f4b8b;
-            color: #fff;
-            margin-top: 50px;
-            border-radius: 8px;
-        }
-
-        footer p {
-            font-size: 14px;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: #555;
-        }
-
-        body.dark-theme ul li {
-            color: #ccc;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        body.dark-theme form {
-            background-color: #2d2d44;
-        }
-
-        form input, form textarea, form button {
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 18px;
-        }
-
-        body.dark-theme form input, body.dark-theme form textarea, body.dark-theme form button {
-            background-color: #1e1e2f;
-            color: #f4f4f9;
-            border-color: #555;
-        }
-
-        form input[type="text"], form input[type="email"], form textarea {
-            width: 100%;
-        }
-
-        form button {
-            background-color: #5f4b8b;
-            color: #fff;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
-        }
-
-        form button:hover {
-            background-color: #f4c542;
-            transform: scale(1.05);
-        }
-
-        body.dark-theme form button {
-            background-color: #5f4b8b;
-            color: #fff;
-        }
-
-        body.dark-theme form button:hover {
-            background-color: #f4c542;
-            color: #5f4b8b;
-        }
-
-        section#report {
-            margin-top: 50px;
-        }
-
-        #links {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .qr-cards {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .qr-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            width: 45%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        body.dark-theme .qr-card {
-            background-color: #2d2d44;
-        }
-
-        .qr-card h3 {
-            font-size: 24px;
-            color: #5f4b8b;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        body.dark-theme .qr-card h3 {
-            color: #f4c542;
-        }
-
-        .qr-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .qr-card img {
-            width: 200px;
-            height: 200px;
-            margin-bottom: 20px;
-        }
-
-        a.bot-link, form button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #5f4b8b;
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        body.dark-theme a.bot-link, body.dark-theme form button {
-            background-color: #f4c542;
-            color: #5f4b8b;
-        }
-
-        a.bot-link:hover, form button:hover {
-            background-color: #f4c542;
-            transform: scale(1.05);
-        }
-
-        body.dark-theme a.bot-link:hover, body.dark-theme form button:hover {
-            background-color: #5f4b8b;
-            color: #fff;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #5f4b8b;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: #f4c542;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-
-            section p {
-                font-size: 18px;
-            }
-
-            .command-card, .qr-card {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .command-card h3 {
-                font-size: 20px;
-            }
-
-            .command-card p {
-                font-size: 16px;
-            }
-
-            .headbar a {
-                margin: 0 10px;
-                font-size: 16px;
-            }
-
-            .headbar a.developer-site {
-                font-size: 16px;
-                padding: 6px 15px;
-            }
-
-            .qr-cards {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .qr-card {
-                width: 100%;
-                padding: 15px;
-            }
-
-            .qr-card img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .qr-card h3 {
-                font-size: 20px;
-            }
-
-            a.bot-link {
-                font-size: 16px;
-                padding: 8px 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/guffi_bot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="headbar">
         <a href="#about">О боте</a>
         <a href="#commands">Команды</a>
-        <!-- <a href="#report">Репорты и предложения</a> -->
         <a href="index.html" class="developer-site">Сайт разработчика</a>
     </div>
 
@@ -445,62 +28,52 @@
             <p>Бот Гуффи может выполнять множество задач — от простых уведомлений до сложных интерактивных функций. Он помогает организовывать общение, предоставляет полезную информацию и даже способен развлечь участников чата. Каждый сможет найти в нем что-то полезное для себя.</p>
         </section>
 
-        <section class="commands" id="commands">
-            <div class="command-card">
-                <h3>Основные команды</h3>
-                <p>Вот несколько основных команд, которые могут вам пригодиться:</p>
-                <ul>
-                    <li><code>/all</code> — отмечаю всех участников в группе;</li>
-                    <li><code>/bot</code> — информация о моем создателе;</li>
-                    <li><code>/bio</code> — информация о вас;</li>
-                    <li><code>/photo</code> — отправляю случайную фотографию;</li>
-                    <li><code>/report текст</code> — отправка отчета об ошибке;</li>
-                </ul>
-            </div>
-
-            <div class="command-card">
-                <h3>Дополнительные команды</h3>
-                <p>Вот дополнительные команды для вашего удобства:</p>
-                <ul>
-                    <li><code>!o вопрос, ответ, ответ</code> — создание опроса;</li>
-                    <li><code>!m</code> или <code>!м</code> — запрос песни для скачивания;</li>
-                    <li><code>да</code> или <code>нет</code> — случайный ответ;</li>
-                    <li><code>/me текст</code> — как на РП-серверах;</li>
-                    <li><code>/try текст</code> — узнайте, сможете ли вы выполнить задуманное;</li>
-                    <li><code>гуффи запрос</code> — запрос к ИИ.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- <section id="report">
-            <h2>Отправить отчет или предложение</h2>
-            <p>Заполните форму ниже, чтобы сообщить о проблемах или предложить новые функции. Мы всегда рады вашему вкладу!</p>
-
-            <form action="submit_report.php" method="POST">
-                <input type="email" name="email" placeholder="Почта для обратной связи (необязательно)">
-                <textarea name="message" rows="6" placeholder="Ваш отчет или предложение" required></textarea>
-                <button type="submit">Отправить</button>
-            </form>
-        </section> -->
-
-        <section id="links">
-            <h2>Ссылки на бота</h2>
-            <div class="qr-cards">
-                <div class="qr-card">
-                    <h3>Гуффи в Telegram</h3>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://t.me/Gufi_Nagibator777_Bot&size=200x200" alt="QR Code Bot" />
-                    <a href="https://t.me/Gufi_Nagibator777_Bot" class="bot-link" target="_blank">Перейти в чат</a>
+        <section class="commands-list" id="commands">
+            <div class="command-item">
+                <div class="info">
+                    <h3>Основные команды</h3>
+                    <p>Вот несколько основных команд, которые могут вам пригодиться:</p>
+                    <ul>
+                        <li><code>/all</code> — отмечаю всех участников в группе;</li>
+                        <li><code>/bot</code> — информация о моем создателе;</li>
+                        <li><code>/bio</code> — информация о вас;</li>
+                        <li><code>/photo</code> — отправляю случайную фотографию;</li>
+                        <li><code>/report текст</code> — отправка отчета об ошибке;</li>
+                    </ul>
                 </div>
-                <div class="qr-card">
-                    <h3>Гуффи в VK</h3>
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=https://vk.com/guffi_bot_777?start=report&size=200x200" alt="QR Code Report" />
-                    <a href="https://vk.com/guffi_bot_777" class="bot-link" target="_blank">Перейти в сообщество</a>
+            </div>
+
+            <div class="command-item">
+                <div class="info">
+                    <h3>Дополнительные команды</h3>
+                    <p>Вот дополнительные команды для вашего удобства:</p>
+                    <ul>
+                        <li><code>!o вопрос, ответ, ответ</code> — создание опроса;</li>
+                        <li><code>!m</code> или <code>!м</code> — запрос песни для скачивания;</li>
+                        <li><code>да</code> или <code>нет</code> — случайный ответ;</li>
+                        <li><code>/me текст</code> — как на РП-серверах;</li>
+                        <li><code>/try текст</code> — узнайте, сможете ли вы выполнить задуманное;</li>
+                        <li><code>гуффи запрос</code> — запрос к ИИ.</li>
+                    </ul>
                 </div>
             </div>
         </section>
+
+        <!-- Важное уведомление -->
+        <div class="important-notice">
+            <p>!!! Важно: бот в данный момент не работает. По всем вопросам обращайтесь в <a href="https://vk.com/guffi_72" target="_blank" style="color: #d32f2f; text-decoration: underline;">сообщество VK</a>.</p>
+        </div>
 
         <footer>
-            <p>&copy; 2025 Все права защищены. Бот от ghks.</p>
+            <p>© 2025 Все права защищены. Бот от ghks</p>
+            <div class="footer-buttons">
+                <a href="https://t.me/guffi_72_bot" target="_blank">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://vk.com/guffi_72" target="_blank">
+                    <i class="fab fa-vk"></i> VK
+                </a>
+            </div>
         </footer>
     </div>
 

@@ -2,230 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Добро пожаловать на мой сайт! Здесь вы найдёте информацию о моих проектах, изучаемых языках программирования (Python, Rust) и полезных ресурсах для обучения.">
+    <meta name="keywords" content="программирование, Python, Rust, Aiogram, Stepik, документация, обучение, проекты, веб-сайт">
     <title>Главная</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        body.dark-theme {
-            background-color: #1e1e2f;
-            color: #f4f4f9;
-        }
-
-        .headbar {
-            background-color: #5f4b8b;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .headbar a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .headbar a:hover {
-            color: #f4c542;
-        }
-
-        .container {
-            width: 85%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        header h1 {
-            font-size: 42px;
-            color: #5f4b8b;
-            font-weight: 700;
-            letter-spacing: 2px;
-            transition: transform 0.3s ease;
-        }
-
-        body.dark-theme header h1 {
-            color: #f4c542;
-        }
-
-        header h1:hover {
-            transform: scale(1.05);
-        }
-
-        section h2 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        body.dark-theme section h2 {
-            color: #f4f4f9;
-        }
-
-        section p {
-            font-size: 22px;
-            margin-bottom: 30px;
-            text-align: justify;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        body.dark-theme section p {
-            color: #ccc;
-        }
-
-        .projects {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .project-card {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            width: 30%;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        body.dark-theme .project-card {
-            background-color: #2d2d44;
-            color: #f4f4f9;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-card h3 {
-            font-size: 24px;
-            color: #5f4b8b;
-            margin-bottom: 15px;
-        }
-
-        body.dark-theme .project-card h3 {
-            color: #f4c542;
-        }
-
-        .project-card p {
-            font-size: 18px;
-            color: #777;
-            margin-bottom: 20px;
-        }
-
-        body.dark-theme .project-card p {
-            color: #ccc;
-        }
-
-        .project-card a {
-            text-decoration: none;
-            color: #5f4b8b;
-            font-weight: 600;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-theme .project-card a {
-            color: #f4c542;
-        }
-
-        .project-card a:hover {
-            color: #f4c542;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #5f4b8b;
-            color: #fff;
-            margin-top: 50px;
-            border-radius: 8px;
-        }
-
-        footer p {
-            font-size: 14px;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #5f4b8b;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: #f4c542;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-
-            header h1 {
-                font-size: 32px;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-
-            section p {
-                font-size: 18px;
-            }
-
-            .project-card {
-                width: 100%;
-            }
-
-            .project-card h3 {
-                font-size: 20px;
-            }
-
-            .project-card p {
-                font-size: 16px;
-            }
-
-            .headbar a {
-                margin: 0 10px;
-                font-size: 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="headbar">
@@ -247,25 +30,45 @@
             <p>Python — это язык программирования, который легко читать и использовать. У Python есть большое сообщество разработчиков и много библиотек, поэтому он подходит для разных целей.</p>
             
             <h2>Основные источники для изучения информации</h2>
-            <p></p>
+            <p>Ниже представлены полезные ресурсы, которые я использую для изучения программирования.</p>
         </section>
 
-        <div class="projects">
-            <div class="project-card">
-                <h3>Основы Python</h3>
-                <p>На Stepik представлен курс, состоящий из двух частей, предназначенный для изучения основ языка программирования Python. Он идеально подходит для тех, кто делает первые шаги в изучении программирования.</p>
-                <a href="https://stepik.org/course/58852/syllabus" target="_blank">1 часть</a>
-                <a href="https://stepik.org/course/68343/syllabus" target="_blank">2 часть</a>
+        <div class="projects-list">
+            <div class="project-item">
+                <div class="info">
+                    <h3>Основы Python</h3>
+                    <p>На Stepik представлен курс, состоящий из двух частей, предназначенный для изучения основ языка программирования Python. Он идеально подходит для тех, кто делает первые шаги в изучении программирования.</p>
+                    <div class="project-links">
+                        <a href="https://stepik.org/course/58852/syllabus" target="_blank">
+                            <i class="fas fa-book"></i> 1 часть
+                        </a>
+                        <a href="https://stepik.org/course/68343/syllabus" target="_blank">
+                            <i class="fas fa-book"></i> 2 часть
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Основы Rust</h3>
-                <p>Официальная документация Rust — это полный и актуальный источник информации о языке программирования. Она включает руководства, справочники и примеры кода. Подходит для новичков и опытных разработчиков.</p>
-                <a href="https://rust-book.cs.brown.edu/" target="_blank">Документация</a>
+            <div class="project-item">
+                <div class="info">
+                    <h3>Основы Rust</h3>
+                    <p>Официальная документация Rust — это полный и актуальный источник информации о языке программирования. Она включает руководства, справочники и примеры кода. Подходит для новичков и опытных разработчиков.</p>
+                    <div class="project-links">
+                        <a href="https://rust-book.cs.brown.edu/" target="_blank">
+                            <i class="fas fa-book"></i> Документация
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Aiogram 3</h3>
-                <p>Aiogram 3 — это современный и полностью асинхронный фреймворк для работы с Telegram Bot API. Он написан на языке Python с использованием asyncio и aiohttp.</p>
-                <a href="https://docs.aiogram.dev/en/stable/" target="_blank">Документация</a>
+            <div class="project-item">
+                <div class="info">
+                    <h3>Aiogram 3</h3>
+                    <p>Aiogram 3 — это современный и полностью асинхронный фреймворк для работы с Telegram Bot API. Он написан на языке Python с использованием asyncio и aiohttp.</p>
+                    <div class="project-links">
+                        <a href="https://docs.aiogram.dev/en/stable/" target="_blank">
+                            <i class="fas fa-book"></i> Документация
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         
