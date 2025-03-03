@@ -189,7 +189,10 @@ footer {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #f4c542;
 }
 
 .theme-toggle {
