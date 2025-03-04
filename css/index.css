@@ -109,6 +109,25 @@ body.dark-theme section p {
     color: #ccc;
 }
 
+.about-block {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 50px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .about-block {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
 .projects-list {
     display: flex;
     flex-direction: column;
@@ -296,5 +315,14 @@ footer p {
     .headbar a {
         margin: 0 10px;
         font-size: 16px;
+    }
+
+    .project-links a {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .project-links a img {
+        margin-bottom: 0;
     }
 }

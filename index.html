@@ -20,18 +20,21 @@
             <h1>Добро пожаловать на мой сайт!</h1>
         </header>
 
-        <section class="about">
-            <h2>О чём этот сайт?</h2>
-            <p>Этот веб-сайт предназначен для демонстрации моих проектов, а также материалов, на основе которых я получил знания, и сведений, которые могут быть полезны для начинающих программистов.</p>
-            
-            <h2>Какие языки программирования я изучаю?</h2>
-            <p>Rust — это язык программирования, который помогает создавать надёжные программы. Он особенно полезен, когда нужно управлять памятью и обеспечивать безопасность.</p>
-            <p>Python — это язык программирования, который легко читать и использовать. У Python есть большое сообщество разработчиков и много библиотек, поэтому он подходит для разных целей.</p>
-            
-            <h2>Основные источники для изучения информации</h2>
-            <p>Ниже представлены полезные ресурсы, которые я использую для изучения программирования.</p>
-        </section>
+        <div class="about-block">
+            <section class="about">
+                <h2>О чём этот сайт?</h2>
+                <p>Этот веб-сайт предназначен для демонстрации моих проектов, а также материалов, на основе которых я получил знания, и сведений, которые могут быть полезны для начинающих программистов.</p>
+                
+                <h2>Какие языки программирования я изучаю?</h2>
+                <p>Rust — это язык программирования, который помогает создавать надёжные программы. Он особенно полезен, когда нужно управлять памятью и обеспечивать безопасность.</p>
+                <p>Python — это язык программирования, который легко читать и использовать. У Python есть большое сообщество разработчиков и много библиотек, поэтому он подходит для разных целей.</p>
+                
+            </section>
+        </div>
 
+        <header>
+            <h1>Основные источники для изучения информации</h1>
+        </header>
         <div class="projects-list">
             <div class="project-item">
                 <div class="info">
@@ -40,11 +43,11 @@
                     <div class="project-links">
                         <a href="https://stepik.org/course/58852/syllabus" target="_blank">
                             <img src="img/stepik.svg" alt="book-icon" width="24px">
-                            1 часть
+                            <b>1 часть</b>
                         </a>
                         <a href="https://stepik.org/course/68343/syllabus" target="_blank">
                             <img src="img/stepik.svg" alt="book-icon" width="24px">
-                            2 часть
+                            <b>2 часть</b>
                         </a>
                     </div>
                 </div>
@@ -56,7 +59,7 @@
                     <div class="project-links">
                         <a href="https://rust-book.cs.brown.edu/" target="_blank">
                             <img src="img/book.png" alt="book-icon" width="24px">
-                            Документация
+                            <b>Документация</b>
                         </a>
                     </div>
                 </div>
@@ -68,7 +71,7 @@
                     <div class="project-links">
                         <a href="https://stepik.org/course/38218/syllabus" target="_blank">
                             <img src="img/stepik.svg" alt="book-icon" width="24px">
-                            Курс
+                            <b>Курс</b>
                         </a>
                     </div>
                 </div>
@@ -84,8 +87,23 @@
 
     <script>
         function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+
+            const isDarkTheme = body.classList.contains('dark-theme');
+            localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
         }
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+
+        applySavedTheme();
     </script>
 </body>
 </html>
