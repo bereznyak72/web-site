@@ -11,6 +11,16 @@ body {
     color: #333;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    animation: moveBackground 50s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 body.dark-theme {
@@ -117,6 +127,7 @@ body.dark-theme section p {
 }
 
 .project-item {
+    position: relative;
     display: flex;
     background: linear-gradient(135deg, #ffffff, #f9f9f9);
     border: 1px solid #ddd;
@@ -126,6 +137,25 @@ body.dark-theme section p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
+}
+
+.project-item .project-type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(244, 197, 66, 0.9);
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme .project-item .project-type {
+    background-color: rgba(244, 197, 66, 0.9);
+    color: #1a1a1a;
 }
 
 body.dark-theme .project-item {
@@ -168,6 +198,19 @@ body.dark-theme .project-item {
 
 body.dark-theme .project-item h3 {
     color: #f4c542;
+}
+
+.project-type {
+    display: block;
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .project-type {
+    color: #aaa;
 }
 
 .project-item p {
