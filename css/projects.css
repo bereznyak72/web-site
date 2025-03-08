@@ -310,10 +310,27 @@
     max-width: 500px;
     display: none;
     z-index: 10;
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
   
   .footer-content.active {
     display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    animation: slideUp 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
   }
   
   body.dark-theme .footer-content {
