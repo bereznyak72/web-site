@@ -15,12 +15,8 @@
   }
   
   @keyframes moveBackground {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
   }
   
   body.dark-theme {
@@ -268,6 +264,11 @@
     margin-top: 50px;
     border-radius: 8px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   footer p {
@@ -283,10 +284,6 @@
   }
   
   .footer-info-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
     background: none;
     border: none;
     color: #f4c542;
@@ -368,6 +365,7 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 100;
   }
   
   .theme-toggle:hover {
@@ -411,5 +409,8 @@
     }
     .footer-content {
       width: 95%;
+    }
+    .theme-toggle {
+      bottom: 70px;
     }
   }
