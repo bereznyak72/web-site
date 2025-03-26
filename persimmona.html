@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detective game 'Persimmona's Investigation' - detective adventure game with puzzle and exploration elements">
+    <meta name="keywords" content="детективная игра, расследование персиммоны, золотой ананас, головоломки, квест, detective game, persimmona's investigation, golden pineapple, puzzles, adventure game, русская игра, russian game">
+    <title>Расследование Персиммоны | Persimmona's Investigation</title>
+    <link rel="stylesheet" href="css/persimmona.css">
+</head>
+<body data-theme="dark">
+    <div class="background-container"></div>
+    
+    <button class="language-switcher" id="languageSwitcher">
+        <span>RU</span>
+    </button>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="hero-title">Расследование Персиммоны</h1>
+            <p id="hero-subtitle">Детективная приключенческая игра с элементами головоломок и исследовательского геймплея</p>
+            <div id="release-date" class="release-date">Планируемая дата релиза: конец апреля 2025 года</div>
+            <button id="cta" class="cta">Скачать сейчас</button>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 id="about-title">Об игре</h2>
+        <div class="about-card">
+            <p id="about-text">"Расследование Персиммоны" — это детективная приключенческая игра с элементами головоломок и исследовательского геймплея. Вы будете играть за Персиммону, талантливую сыщицу, которая вместе со своим помощником Кукурузой пытается раскрыть преступление, произошедшее в её городе. Вам предстоит собирать улики, анализировать их, разгадывать загадки и находить ответы на вопросы, которые кажутся неразрешимыми.</p>
+        </div>
+    </section>
+
+    <section class="characters" id="characters">
+        <h2 id="characters-title">Знакомьтесь с персонажами</h2>
+        <div class="character-grid">
+            <div class="character-card">
+                <img src="https://github.com/bereznyak72/Persimona-s-investigation/blob/main/assets/images/persimmona.png?raw=true" alt="Персиммона">
+                <h3 id="persimmona">Персиммона</h3>
+                <p id="persimmona-desc">Остроумный детектив с нюхом на неприятности.</p>
+            </div>
+            <div class="character-card">
+                <img src="https://github.com/bereznyak72/Persimona-s-investigation/blob/main/assets/images/blueberry.png?raw=true" alt="Голубика">
+                <h3 id="blueberry">Голубика</h3>
+                <p id="blueberry-desc">Элегантная дама, у которой украли золотой ананас.</p>
+            </div>
+            <div class="character-card">
+                <img src="https://github.com/bereznyak72/Persimona-s-investigation/blob/main/assets/images/corn.png?raw=true" alt="Кукуруза">
+                <h3 id="corn">Кукуруза</h3>
+                <p id="corn-desc">Технически подкованный помощник Персиммоны.</p>
+            </div>
+            <div class="character-card">
+                <img src="https://github.com/bereznyak72/Persimona-s-investigation/blob/main/assets/images/cucumber.png?raw=true" alt="Огурец">
+                <h3 id="cucumber">Огурец</h3>
+                <p id="cucumber-desc">Опытный пекарь, у которого украли продукцию</p>
+            </div>
+            <div class="character-card">
+                <img src="https://github.com/bereznyak72/Persimona-s-investigation/blob/main/assets/images/presenter.png?raw=true" alt="Ведущий">
+                <h3 id="presenter">Ведущий</h3>
+                <p id="presenter-desc">Телевизионная знаменитость.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gameplay" id="gameplay">
+        <h2 id="features-title">Особенности игры</h2>
+        <div class="gameplay-features">
+            <p><strong id="feature1-title">Увлекательный сюжет</strong><br><span id="feature1-text">Погрузитесь в историю, полную тайн, интриг и неожиданных открытий. Каждая глава игры раскрывает новые детали и загадки, которые вам предстоит разгадать.</span></p>
+            <p><strong id="feature2-title">Исследование</strong><br><span id="feature2-text">Исследуйте различные локации, от уютных домов до шумных супермаркетов, чтобы найти ключи к разгадке.</span></p>
+            <p><strong id="feature3-title">Головоломки</strong><br><span id="feature3-text">Решайте разнообразные задачи, используя уникальные инструменты, такие как "нюхач" и блокнот для зарисовок. Каждая улика — это шаг ближе к разгадке.</span></p>
+            <p><strong id="feature4-title">Персонажи</strong><br><span id="feature4-text">Встречайте ярких и запоминающихся персонажей, каждый из которых играет важную роль в сюжете. От элегантной Голубики до весёлой Кукурузы — все они помогут вам в расследовании.</span></p>
+            <p><strong id="feature5-title">Атмосфера</strong><br><span id="feature5-text">Наслаждайтесь уникальной атмосферой игры, которая сочетает в себе элементы детектива, юмора и загадочности.</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+          <a href="index.html" id="dev-link">Сайт разработчика</a> | <a href="https://github.com/bereznyak72/Persimona-s-investigation" target="_blank" id="code-link">Исходный код</a>
+        </div>
+        <p id="copyright">© 2025 Все права защищены.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            ru: {
+                "hero-title": "Расследование Персиммоны",
+                "hero-subtitle": "Детективная приключенческая игра с элементами головоломок и исследовательского геймплея",
+                "release-date": "Планируемая дата релиза: конец апреля 2025 года",
+                "cta": "Скачать сейчас",
+                "about-title": "Об игре",
+                "about-text": "\"Расследование Персиммоны\" — это детективная приключенческая игра с элементами головоломок и исследовательского геймплея. Вы будете играть за Персиммону, талантливую сыщицу, которая вместе со своим помощником Кукурузой пытается раскрыть преступление, произошедшее в её городе. Вам предстоит собирать улики, анализировать их, разгадывать загадки и находить ответы на вопросы, которые кажутся неразрешимыми.",
+                "characters-title": "Знакомьтесь с персонажами",
+                "persimmona": "Персиммона",
+                "blueberry": "Голубика",
+                "corn": "Кукуруза",
+                "cucumber": "Огурец",
+                "presenter": "Ведущий",
+                "persimmona-desc": "Остроумный детектив с нюхом на неприятности.",
+                "blueberry-desc": "Элегантная дама, у которой украли золотой ананас.",
+                "corn-desc": "Технически подкованный помощник Персиммоны.",
+                "cucumber-desc": "Опытный пекарь, у которого украли продукцию.",
+                "presenter-desc": "Телевизионная знаменитость.",
+                "features-title": "Особенности игры",
+                "feature1-title": "Увлекательный сюжет",
+                "feature1-text": "Погрузитесь в историю, полную тайн, интриг и неожиданных открытий. Каждая глава игры раскрывает новые детали и загадки, которые вам предстоит разгадать.",
+                "feature2-title": "Исследование",
+                "feature2-text": "Исследуйте различные локации, от уютных домов до шумных супермаркетов, чтобы найти ключи к разгадке.",
+                "feature3-title": "Головоломки",
+                "feature3-text": "Решайте разнообразные задачи, используя уникальные инструменты, такие как \"нюхач\" и блокнот для зарисовок. Каждая улика — это шаг ближе к разгадке.",
+                "feature4-title": "Персонажи",
+                "feature4-text": "Встречайте ярких и запоминающихся персонажей, каждый из которых играет важную роль в сюжете. От элегантной Голубики до весёлой Кукурузы — все они помогут вам в расследовании.",
+                "feature5-title": "Атмосфера",
+                "feature5-text": "Наслаждайтесь уникальной атмосферой игры, которая сочетает в себе элементы детектива, юмора и загадочности.",
+                "dev-link": "Сайт разработчика",
+                "code-link": "Исходный код",
+                "copyright": "© 2025 Все права защищены."
+            },
+            en: {
+                "hero-title": "Persimmona's Investigation",
+                "hero-subtitle": "A detective adventure game with puzzle and exploration elements",
+                "release-date": "Planned release date: End of April 2025",
+                "cta": "Download Now",
+                "about-title": "About the Game",
+                "about-text": "\"Persimmona's Investigation\" is a detective adventure game with puzzle and exploration elements. You'll play as Persimmona, a talented detective who, together with her assistant Corn, tries to solve a crime that occurred in her city. You'll need to collect evidence, analyze it, solve puzzles and find answers to seemingly unsolvable questions.",
+                "characters-title": "Meet the Characters",
+                "persimmona": "Persimmona",
+                "blueberry": "Blueberry",
+                "corn": "Corn",
+                "cucumber": "Cucumber",
+                "presenter": "Presenter",
+                "persimmona-desc": "A witty detective with a nose for trouble.",
+                "blueberry-desc": "An elegant lady whose golden pineapple was stolen.",
+                "corn-desc": "Technically savvy assistant of Persimmona.",
+                "cucumber-desc": "An experienced baker who had his produce stolen.",
+                "presenter-desc": "TV celebrity.",
+                "features-title": "Game Features",
+                "feature1-title": "Engaging Story",
+                "feature1-text": "Immerse yourself in a story full of mysteries, intrigues and unexpected discoveries. Each chapter reveals new details and puzzles for you to solve.",
+                "feature2-title": "Exploration",
+                "feature2-text": "Explore various locations, from cozy houses to noisy supermarkets, to find clues to the solution.",
+                "feature3-title": "Puzzles",
+                "feature3-text": "Solve various tasks using unique tools such as the \"sniffer\" and sketchbook. Each clue is a step closer to solving the case.",
+                "feature4-title": "Characters",
+                "feature4-text": "Meet bright and memorable characters, each of whom plays an important role in the plot. From elegant Blueberry to cheerful Corn - they will all help you in the investigation.",
+                "feature5-title": "Atmosphere",
+                "feature5-text": "Enjoy the unique atmosphere of the game that combines elements of detective, humor and mystery.",
+                "dev-link": "Developer's Site",
+                "code-link": "Source Code",
+                "copyright": "© 2025 All Rights Reserved."
+            }
+        };
+
+        const savedLang = localStorage.getItem('siteLanguage');
+        const userLanguage = navigator.language || navigator.userLanguage;
+        const isRussian = userLanguage.startsWith('ru');
+        
+        let currentLang = savedLang || (isRussian ? 'ru' : 'en');
+        
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        const languageText = languageSwitcher.querySelector('span');
+        
+        document.getElementById('cta').addEventListener('click', function() {
+            alert(currentLang === 'ru' ? 'Функция скачивания будет реализована позже' : 'Download feature will be implemented later');
+        });
+        
+        async function animateLanguageChange() {
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.add('fade-out');
+            });
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            setLanguage(currentLang);
+            
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.remove('fade-out');
+                el.classList.add('fade-in');
+            });
+            
+            setTimeout(() => {
+                document.querySelectorAll('section, footer').forEach(el => {
+                    el.classList.remove('fade-in');
+                });
+            }, 500);
+        }
+        
+        async function toggleLanguage() {
+            currentLang = currentLang === 'ru' ? 'en' : 'ru';
+            await animateLanguageChange();
+            localStorage.setItem('siteLanguage', currentLang);
+        }
+        
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            if (lang === 'ru') {
+                languageText.textContent = 'RU';
+            } else {
+                languageText.textContent = 'EN';
+            }
+            
+            for (const [key, value] of Object.entries(translations[lang])) {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'BUTTON') {
+                        element.value = value;
+                    } else {
+                        element.textContent = value;
+                    }
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage(currentLang);
+            document.querySelectorAll('section, footer').forEach(el => {
+                el.classList.add('fade-in');
+            });
+            
+            setTimeout(() => {
+                document.querySelectorAll('section, footer').forEach(el => {
+                    el.classList.remove('fade-in');
+                });
+            }, 500);
+        });
+        
+        languageSwitcher.addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>
