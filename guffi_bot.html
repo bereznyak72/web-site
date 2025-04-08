@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Гуффи Бот — универсальный помощник для общения в чате. Узнайте больше о его функциях и командах.">
-    <meta name="keywords" content="Гуффи Бот, Telegram бот, VK бот, команды бота, чат-бот">
+    <meta name="description" content="Гуффи Бот - многофункциональный чат-бот для Telegram, VK и MAX с ИИ-функциями, играми, модерацией и уникальными командами. Узнайте о возможностях бота и планах развития.">
+    <meta name="keywords" content="Гуффи Бот, Telegram бот, VK бот, MAX бот, чат-бот, ИИ бот, команды бота, бот для общения, бот с искусственным интеллектом, YandexGPT, бот для чата, функции бота">
     <title>Гуффи Бот</title>
     <link rel="stylesheet" href="css/guffi_bot.css">
 </head>
@@ -33,6 +33,51 @@
             </section>
         </div>
 
+        <div class="task-list">
+            <section class="todo" id="todo">
+                <h2>Планы развития</h2>
+                <p>Мы активно работаем над улучшением бота и планируем следующие обновления:</p>
+                <ul class="task-items">
+                    <li class="task-item">
+                        <span class="task-icon">🛠️</span>
+                        <div class="task-content">
+                            <h4>Интеграция с YandexGPT 5 Lite</h4>
+                            <p>Улучшение ИИ-функционала для более умных и контекстных ответов</p>
+                            <div class="task-progress">
+                                <div class="progress-bar animated" style="--progress: 0%"></div>
+                                <span>0% выполнено</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span class="task-icon"><img src="img/vk.png" width="30px"></span>
+                        <div class="task-content">
+                            <h4>VK версия</h4>
+                            <p>Полноценный запуск версии для VK с полным функционалом</p>
+                            <div class="task-progress">
+                                <div class="progress-bar animated" style="--progress: 20%"></div>
+                                <span>20% выполнено</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span class="task-icon">🤖</span>
+                        <div class="task-content">
+                            <h4>MAX версия</h4>
+                            <p>Полноценный запуск версии для мессенджера MAX с полным функционалом</p>
+                            <div class="task-progress">
+                                <div class="progress-bar animated" style="--progress: 20%"></div>
+                                <span>20% выполнено</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="task-notice">
+                    <p>Хотите предложить идею для развития бота? Напишите нам в <a href="https://vk.com/guffi_72" target="_blank">VK</a>!</p>
+                </div>
+            </section>
+        </div>
+
         <section class="commands-list" id="commands">
             <div class="command-item">
                 <div class="info">
@@ -49,7 +94,6 @@
                         <li><code>!m</code> или <code>!м</code> — запрос песни для скачивания</li>
                         <li><code>гуффи запрос</code> — запрос к ИИ (в тестовом режиме!)</li>
                     </ul>
-
                 </div>
             </div>
 
@@ -62,7 +106,21 @@
                         <li><code>!бот</code> — информация о моем создателе</li>
                     </ul>
                     <div class="important-notice">
-                        <p>К сожалению, из-за особенностей социальной сети ВКонтакте список команд здесь меньше, чем в Telegram-версии. Однако мы активно работаем над его расширением.</p>
+                        <p>Находится в разработке!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="command-item">
+                <div class="info">
+                    <h3>MAX версия</h3>
+                    <p>Вот несколько основных команд, которые могут вам пригодиться:</p>
+                    <ul>
+                        <li><code>/bot</code> — информация о моем создателе</li>
+                        <li><code>/report текст</code> — отправка отчета об ошибке</li>
+                    </ul>
+                    <div class="important-notice">
+                        <p>Находится в разработке!</p>
                     </div>
                 </div>
             </div>
@@ -97,7 +155,16 @@
             }
         }
 
-        applySavedTheme();
+        document.addEventListener('DOMContentLoaded', function() {
+            applySavedTheme();
+            
+            setTimeout(function() {
+                const progressBars = document.querySelectorAll('.progress-bar');
+                progressBars.forEach(bar => {
+                    bar.classList.add('animated');
+                });
+            }, 1000);
+        });
     </script>
 </body>
 </html>
