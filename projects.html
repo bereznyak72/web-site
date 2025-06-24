@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Портфолио разработчика: учебные проекты, такие как веб-сайт и бот Гуффи, а также самостоятельные работы, включая 'Расследование Персимоны' и исторический анализ образов Николая II.">
-  <meta name="keywords" content="портфолио, веб-разработка, программирование, бот Гуффи, обучение, проекты, Расследование Персимоны, Николай II, Первая мировая война">
+  <meta name="description" content="Портфолио разработчика: учебные и самостоятельные проекты по веб-разработке, программированию и исследованию. Ознакомьтесь с моими работами и прогрессом.">
+  <meta name="keywords" content="портфолио, веб-разработка, программирование, учебные проекты, самостоятельные проекты, игры, исследования, Fullstack-разработка">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
   <title>Мои проекты</title>
   <link rel="stylesheet" href="css/projects.css">
 </head>
@@ -14,7 +15,19 @@
 <body>
   <div class="headbar">
     <a href="index.html">Главная</a>
-    <a href="about.html">О сайте</a>
+    <a href="education.html">Обучение</a>
+  </div>
+
+  <button class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-menu">
+    <a href="index.html">Главная</a>
+    <a href="education.html">Обучение</a>
+    <button class="mobile-theme-toggle" onclick="toggleTheme()">🌓</button>
   </div>
 
   <div class="container">
@@ -24,50 +37,60 @@
 
     <section class="projects-list">
       <div class="project-item">
-        <span class="project-type">В качестве обучения</span>
+        <span class="project-type">Обучение</span>
         <img src="img/website.jpg" alt="Мой сайт">
         <div class="info">
           <h3>Мой веб-сайт</h3>
           <p>Цель данного сайта — продемонстрировать мои проекты и ресурсы, которые я использовал и использую в процессе своего обучения.</p>
-          <a href="index.html">Подробнее</a>
+          <a href="index.html" class="details-link">Подробнее</a>
         </div>
       </div>
 
       <div class="project-item">
-        <span class="project-type">В качестве обучения</span>
-        <img src="img/guffi.jpg" alt="Бот Гуффи">
+        <span class="project-type">Обучение</span>
+        <img src="img/guffi.png" alt="Бот Гуффи">
         <div class="info">
           <h3>Бот Гуффи</h3>
           <p>Этот универсальный помощник был разработан для того, чтобы сделать общение в чате более продуктивным и интересным. Обладая обширными знаниями и богатым опытом своего создателя, бот предлагает широкий спектр функций, который позволяет разнообразить взаимодействие участников группы.</p>
-          <a href="guffi_bot.html">Подробнее</a>
+          <a href="guffi_bot.html" class="details-link">Подробнее</a>
         </div>
       </div>
 
       <div class="project-item">
         <span class="project-type">Проект</span>
-        <img src="img/persimmona.jpg" alt="Расследование Персимоны">
+        <img src="img/persimmona.png" alt="Расследование Персиммоны">
         <div class="info">
           <h3>Расследование Персиммоны</h3>
           <p>Детективная приключенческая игра с элементами головоломок и исследования. Вы возьмете на себя роль Персиммоны — талантливой сыщицы, которая вместе со своим помощником Кукурузой пытается раскрыть преступление, произошедшее в их городе. В процессе игры вам предстоит собирать улики, анализировать их, разгадывать загадки и находить ответы на вопросы, которые кажутся неразрешимыми.</p>
-          <a href="persimmona.html">Подробнее</a>
+          <a href="https://bereznyak72.github.io/Persimmona-s-investigation/" class="details-link">Подробнее</a>
         </div>
       </div>
 
       <div class="project-item">
         <span class="project-type">Проект</span>
-        <img src="img/N2.jpg" alt="Фото Николая 2">
+        <img src="img/N2.png" alt="Фото Николая 2">
         <div class="info">
-          <h3>От любви до ненависти: образы Николая II в годы Первой мировой войны</h3>
-          <p>Проект в разработке</p>
+          <h3>От любви до ненависти: образ Николая II в российской периодической печати в годы Первой мировой войны</h3>
+          <p>Сайт анализирует образ Николая II в российской прессе времён Первой мировой войны, показывая трансформацию восприятия царя от «царя-батюшки» до объекта обвинений в поражениях и бедах общества. Исследование актуально для понимания политической легитимности и общественных настроений в кризисные периоды.</p>
+          <!-- <a href="https://bereznyak72.github.io/N2/" class="details-link">Подробнее</a> -->
           <p class="release-date">Планируемый релиз: <strong>Конец июня 2025</strong></p>
         </div>
       </div>
 
       <div class="project-item">
-        <img src="img/flappy.jpg" alt="Flappy Game">
-        <span class="project-type">В качестве обучения</span>
+        <img src="img/hero.png" alt="Flappy Game">
+        <span class="project-type">Обучение</span>
         <div class="info">
           <h3>Flappy Game</h3>
+          <p>Проект в разработке</p>
+          <p class="release-date">Планируемый релиз: <strong>Не определён</strong></p>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <span class="project-type">Проект</span>
+        <div class="info">
+          <h3>ByteMe</h3>
           <p>Проект в разработке</p>
           <p class="release-date">Планируемый релиз: <strong>Не определён</strong></p>
         </div>
@@ -80,9 +103,9 @@
       <div class="footer-content">
         <h3>Что означают пометки у проектов:</h3>
         <ul>
-          <li><strong>В качестве обучения</strong> — проекты, созданные в процессе обучения и отработки новых навыков.</li>
+          <li><strong>Обучение</strong> — проекты, созданные в процессе обучения и отработки новых навыков.</li>
           <li><strong>Проект</strong> — самостоятельные проекты, разработанные для решения конкретных задач или реализации идей.</li>
-          <li><strong>По заказу</strong> — проекты, выполненные по запросу или заказу сторонних лиц или организаций.</li>
+          <li><strong>Заказ</strong> — проекты, выполненные по запросу или заказу сторонних лиц или организаций.</li>
         </ul>
       </div>
     </footer>
@@ -96,6 +119,10 @@
       body.classList.toggle('dark-theme');
       const isDarkTheme = body.classList.contains('dark-theme');
       localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+      if (window.innerWidth <= 768) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
     }
 
     function applySavedTheme() {
@@ -112,17 +139,31 @@
       const content = document.querySelector('.footer-content');
       content.classList.toggle('active');
     }
-
     document.addEventListener('click', function(event) {
       const content = document.querySelector('.footer-content');
       const button = document.querySelector('.footer-info-btn');
-      
       if (!content.contains(event.target) && event.target !== button) {
         content.classList.remove('active');
       }
     });
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const themeToggle = document.querySelector('.theme-toggle');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
 
+    function handleThemeToggleVisibility() {
+      if (window.innerWidth <= 768) {
+        themeToggle.style.display = 'none';
+      } else {
+        themeToggle.style.display = 'block';
+      }
+    }
     applySavedTheme();
+    handleThemeToggleVisibility();
+    window.addEventListener('resize', handleThemeToggleVisibility);
   </script>
 </body>
 
