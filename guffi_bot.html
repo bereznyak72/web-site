@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="css/guffi_bot.css">
 </head>
 <body>
+    <div class="notification-overlay" id="notification">
+        <div class="notification-box">
+            <h2 class="notification-title">Проект приостановлен</h2>
+            <div class="notification-content">
+                К сожалению, разработка бота временно приостановлена. Мы благодарим всех за проявленный интерес и надеемся вернуться к проекту в будущем. Следите за обновлениями! По всем вопросам обращайтесь в <a href="https://vk.com/guffi_72" target="_blank" style="color: #f4c542; text-decoration: underline;">сообщество VK</a>.
+            </div>
+            <button class="notification-button" onclick="closeNotification()">Понятно</button>
+        </div>
+    </div>
+
     <div class="headbar">
         <a href="https://t.me/guffi_72_bot" target="_blank">
             <img src="img/tg.png" alt="tg-icon" width="24px">
@@ -153,6 +163,12 @@
             } else {
                 document.body.classList.remove('dark-theme');
             }
+        }
+
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'none';
+            localStorage.setItem('notificationClosed', 'true');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
