@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Страница не найдена - Fullstack Journey">
+  <meta name="keywords" content="404, страница не найдена, ошибка, Fullstack-разработка">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>404 - Страница не найдена</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .error-container {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .error-code {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 120px;
+      color: #A0522D;
+      margin-bottom: 20px;
+      line-height: 1;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    }
+    
+    .error-message {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    
+    body.dark-theme .error-message {
+      color: #f4f4f9;
+    }
+    
+    .error-description {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    body.dark-theme .error-description {
+      color: #ccc;
+    }
+    
+    .error-illustration {
+      font-size: 100px;
+      margin-bottom: 30px;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+    
+    .error-actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .error-actions a {
+      padding: 14px 35px;
+      background: linear-gradient(135deg, #8B4513, #A0522D);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .error-actions a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    
+    .error-actions a:hover::before {
+      left: 100%;
+    }
+    
+    .error-actions a:hover {
+      background: linear-gradient(135deg, #A0522D, #8B4513);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 80px;
+      }
+      
+      .error-message {
+        font-size: 24px;
+      }
+      
+      .error-description {
+        font-size: 16px;
+      }
+      
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .error-actions a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="error-container">
+      <div class="error-illustration">🔍</div>
+      <h1 class="error-code">404</h1>
+      <h2 class="error-message">Страница не найдена</h2>
+      <p class="error-description">
+        Похоже, мы не смогли найти страницу, которую вы ищете. Возможно, она была перемещена или удалена. 
+        Попробуйте вернуться на главную страницу или воспользуйтесь навигацией.
+      </p>
+      <div class="error-actions">
+        <a href="index.html"><span>🏠</span> На главную</a>
+        <a href="projects.html"><span>🚀</span> Мои проекты</a>
+        <a href="education.html"><span>📚</span> Мой путь обучения</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Все права защищены</p>
+      <p>Создано с 🤎 Fullstack Journey</p>
+    </footer>
+  </div>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-theme');
+      const isDarkTheme = body.classList.contains('dark-theme');
+      localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    }
+
+    function applySavedTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+      } else {
+        document.body.classList.remove('dark-theme');
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      applySavedTheme();
+    });
+  </script>
+</body>
+
+</html>
