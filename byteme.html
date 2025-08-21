@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteMe - AI наставник для разработчиков</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .roadmap-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            height: calc(100% - 40px);
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        .dark .roadmap-item:not(:last-child)::after {
+            background-color: #334155;
+        }
+    </style>
+</head>
+<body class="font-sans bg-light text-dark dark:bg-gray-900 dark:text-gray-200">
+    <!-- Навигация -->
+    <nav class="py-6 px-4 sm:px-8 lg:px-16 dark:bg-gray-900">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <span class="text-white font-bold">B</span>
+                </div>
+                <span class="text-xl font-bold dark:text-white">ByteMe</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="font-medium hover:text-primary dark:hover:text-primary">Возможности</a>
+                <a href="#roadmap" class="font-medium hover:text-primary dark:hover:text-primary">Этапы</a>
+                <button id="theme-toggle" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <a href="#cta" class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-90 transition">
+                Попробовать бета
+            </a>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section id="main" class="hero-gradient text-white py-20 px-4 sm:px-8 lg:px-16">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="gradient-text">ByteMe</span> — твой AI наставник в программировании
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                        Персонализированные задания, автоматическая проверка кода и игровая система прогресса. 
+                        Стань лучшим разработчиком с помощью искусственного интеллекта.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#cta" class="bg-white text-dark px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                            Начать обучение
+                        </a>
+                        <a href="#roadmap" class="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:bg-opacity-10 transition">
+                            Следить за развитием
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 bg-primary rounded-2xl opacity-20 blur-3xl absolute -top-10 -left-10"></div>
+                        <div class="relative bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-2xl p-6 max-w-md">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="bg-dark rounded-lg p-4 mb-4">
+                                <p class="text-sm text-gray-300 mb-2">Bot: Привет! Сегодня работаем с React.</p>
+                                <p class="text-sm text-gray-300">Напиши компонент кнопки с пропсами size и variant.</p>
+                            </div>
+                            <div class="bg-dark rounded-lg p-4 mb-4">
+                                <p class="text-sm text-green-400">Вы: <span class="text-gray-300">function Button({ size, variant }) { ... }</span></p>
+                            </div>
+                            <div class="bg-dark rounded-lg p-4">
+                                <p class="text-sm text-gray-300 mb-2">Bot: Отлично! ★★★★☆</p>
+                                <p class="text-sm text-gray-300">Совет: Добавь PropTypes для документирования.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Возможности -->
+    <section id="features" class="py-20 px-4 sm:px-8 lg:px-16 bg-white dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4 dark:text-white">Как <span class="gradient-text">ByteMe</span> поможет тебе расти</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 dark:text-gray-300">
+                Индивидуальный подход к обучению программированию с использованием современных технологий
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">AI-генерация заданий</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Персонализированные задачи под твой уровень и цели. От простых алгоритмов до реальных проектов.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">Проверка кода</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Автоматический анализ твоего кода с детальными комментариями и советами по улучшению.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">Геймификация</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Уровни, бейджи и рейтинги мотивируют продолжать обучение и достигать новых высот.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">Персональный roadmap</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Четкий план развития от новичка до профессионала с рекомендациями что изучать дальше.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">Комьюнити</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Общайся с другими учениками, участвуй в соревнованиях и делись достижениями.
+                    </p>
+                </div>
+                
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                    <div class="w-12 h-12 rounded-lg bg-indigo-50 dark:bg-gray-600 text-primary flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 dark:text-white">Мультиплатформенность</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Работает в Telegram, веб-версии и мобильном приложении. Учись где и когда удобно.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Дорожная карта -->
+    <section id="roadmap" class="py-20 px-4 sm:px-8 lg:px-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-4 dark:text-white">Дорожная карта <span class="gradient-text">развития</span></h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12 dark:text-gray-300">
+                Следи за нашим прогрессом и ожидаемыми обновлениями
+            </p>
+            
+            <div class="relative">
+                <div class="space-y-8">
+                    <!-- Этап 1 -->
+                    <div class="roadmap-item relative pl-16">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                            1
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                <h3 class="text-xl font-semibold dark:text-white">Прототип Telegram-бота</h3>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium mt-2 sm:mt-0">В работе</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 dark:text-gray-300">
+                                Базовый функционал бота с ручными заданиями и простой проверкой кода.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Этап 2 -->
+                    <div class="roadmap-item relative pl-16">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                            2
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                <h3 class="text-xl font-semibold dark:text-white">Интеграция AI</h3>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mt-2 sm:mt-0">В планах</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 dark:text-gray-300">
+                                Добавление GPT для генерации заданий и анализа кода. Улучшение prompt-инжиниринга.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Этап 3 -->
+                    <div class="roadmap-item relative pl-16">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                            3
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                <h3 class="text-xl font-semibold dark:text-white">Веб-дашборд</h3>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mt-2 sm:mt-0">В планах</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 dark:text-gray-300">
+                                Личный кабинет с прогрессом, статистикой и рекомендациями. React + Node.js.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Этап 4 -->
+                    <div class="roadmap-item relative pl-16">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                            4
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                <h3 class="text-xl font-semibold dark:text-white">Геймификация</h3>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mt-2 sm:mt-0">В планах</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 dark:text-gray-300">
+                                Система уровней, бейджей и соревнований между пользователями.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Этап 5 -->
+                    <div class="roadmap-item relative pl-16">
+                        <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+                            5
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl border border-gray-100 dark:border-gray-600 shadow-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                                <h3 class="text-xl font-semibold dark:text-white">Публичный релиз</h3>
+                                <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mt-2 sm:mt-0">В планах</span>
+                            </div>
+                            <p class="text-gray-600 mb-4 dark:text-gray-300">
+                                Официальный запуск платформы с маркетинговой кампанией.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA и Сообщество -->
+    <section id="cta" class="py-20 px-4 sm:px-8 lg:px-16 bg-white dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6 dark:text-white">Готов начать <span class="gradient-text">прокачивать</span> свои навыки?</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto dark:text-gray-300">
+                Присоединяйся к бета-тестированию. Помоги нам сделать ByteMe лучше!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button id="bot" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">
+                    Попробовать в Telegram
+                </button>
+                <!-- <a href="#" class="border border-gray-300 dark:border-gray-600 text-dark dark:text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+                    Подписаться на обновления
+                </a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-12 px-4 sm:px-8 lg:px-16 bg-dark text-gray-300">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                            <span class="text-white font-bold">B</span>
+                        </div>
+                        <span class="text-xl font-bold text-white">ByteMe</span>
+                    </div>
+                    <p class="text-sm">
+                        AI-наставник для разработчиков. Учись, практикуйся и становись лучше с каждым днем.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-medium mb-4">Навигация</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#main" class="hover:text-white transition">Главная</a></li>
+                        <li><a href="#features" class="hover:text-white transition">Возможности</a></li>
+                        <li><a href="#roadmap" class="hover:text-white transition">Этапы</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-medium mb-4">Контакты</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-telegram" viewBox="0 0 24 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+                            </svg>
+                            <a href="#" id="to-channel" class="hover:text-white transition">Telegram-канал</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                            <a href="#" id="to-chat" class="hover:text-white transition">Telegram-чат</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                            </svg>
+                            <a href="index.html" class="hover:text-white transition">Сайт разработчика</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+                <p>© 2025 ByteMe. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bot').addEventListener('click', function() {
+            alert('В данный момент тестирование бота недоступно.');
+            // window.open('https://t.me/bytemeai_bot', '_blank');
+
+        });
+
+        document.getElementById('to-channel').addEventListener('click', function() {
+            alert('В данный момент данная функция недоступна.');
+        });
+
+        document.getElementById('to-chat').addEventListener('click', function() {
+            alert('В данный момент данная функция недоступна.');
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || 
+            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
